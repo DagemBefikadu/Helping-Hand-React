@@ -11,7 +11,7 @@ function Home (props) {
 			_id: 1,
 			creatorId: 1,
 			recipientId: null ,
-			category: "Coat",
+			category: "Fuzzy Sweater",
 			description: "This is a really nice coat, just don't need it anymore",
 			zipcode: 10017,
 			imgurl: "",
