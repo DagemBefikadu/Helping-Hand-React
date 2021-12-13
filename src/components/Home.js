@@ -5,10 +5,8 @@ function Home (props) {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 	
-	const allItems = (props.allItems)
 
-	
-		
+
 	//TO DO: set state that will hold all data that matches search
 	const [searchResults, setSearchResults] = useState([])
 
@@ -20,11 +18,8 @@ function Home (props) {
 		console.log('zipcode: ', e.target.zipcode.value)
 		let zip = e.target.zipcode.value
 
-		/////the Below code is copy pasted from Fruit Filter, to refactor with our app
-
-		//set up a filter that removes fruits that don't match the value in the input
-		//referring to each fruit as f
-		const filteredListings = allItems.filter((l) => {
+		//filter listings based on search params
+		const filteredListings = props.allItems.items.filter((l) => {
 			return l.description.toLowerCase().includes(srch.toLowerCase()) && l.zipcode.toString().includes(zip.toString())
 		})
 		//then we will set state with the new array of fruits 
