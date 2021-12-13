@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
@@ -14,8 +14,11 @@ import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 
 const App = () => {
+  //set state
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
+  //store all items from db in state
+  const [allItems, setAllItems] = useState([])
 
   console.log("user in app", user);
   console.log("message alerts", msgAlerts);
@@ -36,6 +39,24 @@ const App = () => {
       return [{ heading, message, variant, id }];
     });
   };
+
+  useEffect(() => {
+    console.log('getting items')
+    getItems()
+  }, [])
+
+  //get all listings from the db
+  const getItems = () => {
+    fetch('http://localhost:8000/items')
+    .then(response=>response.json())
+    .then(foundItems=>{
+      setAllItems(foundItems)
+      console.log('all Items: ', allItems)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
 
   return (
     <Fragment>
