@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import ListingIndex from './ListingIndex'
 
 function Home (props) {
 	// const { msgAlert, user } = props
@@ -82,7 +83,7 @@ function Home (props) {
 		/////////////////////////////////
 
 	}
-
+	
     return (
         <>
 		<h2>Home Page</h2>
@@ -97,6 +98,7 @@ function Home (props) {
 
 				<input type="submit"/>
             </form>
+		<ListingIndex listings={searchResults}/>
         </>
     )
 }
