@@ -1,64 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ListingIndex from './ListingIndex'
 
 function Home (props) {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
-	// in the future, allItems will be passed down as props from app.js
-	//the below is an array of test data
-	let allItems = [
-			{
-			_id: 1,
-			creatorId: 1,
-			recipientId: null ,
-			category: "Fuzzy Sweater",
-			description: "This is a really nice coat, just don't need it anymore",
-			zipcode: 10017,
-			imgurl: "",
-			timestamp: 1
-			},
-			{
-			_id: 2,
-			creatorId: 1,
-			recipientId: null ,
-			category: "Household",
-			description: "test Queen size, unopend bedding set",
-			zipcode: 10017,
-			imgurl: "",
-			timestamp: 2
-			},
-			{
-				_id: 3,
-				creatorId: 1,
-				recipientId: null ,
-				category: "Household",
-				description: "test Queen size, unopend bedding set",
-				zipcode: 10014,
-				imgurl: "",
-				timestamp: 2
-				},
-				{
-				_id: 4,
-				creatorId: 1,
-				recipientId: null ,
-				category: "Accessories",
-				description: "unopened five pack of socks",
-				zipcode: 10017,
-				imgurl: "",
-				timestamp: 3
-				},
-				{
-				_id: 5,
-				creatorId: 1,
-				recipientId: null ,
-				category: "Outdoor",
-				description: "10 foot hose",
-				zipcode: 10017,
-				imgurl: "",
-				timestamp: 3
-				}
-			
-	]
+	
+	const allItems = (props.allItems)
+
+	
+		
 	//TO DO: set state that will hold all data that matches search
 	const [searchResults, setSearchResults] = useState([])
 
