@@ -19,7 +19,13 @@ function Home (props) {
 
 		//filter listings based on search params
 		const filteredListings = props.allItems.items.filter((l) => {
-			return l.description.toLowerCase().includes(srch.toLowerCase()) && l.zipcode.toString().includes(zip.toString())
+			return (
+				( 
+					l.description.toLowerCase().includes(srch.toLowerCase()) 
+					|| l.name.toLowerCase().includes(srch.toLowerCase()) 
+					|| l.category.toLowerCase().includes(srch.toLowerCase())
+				) && l.zipcode.toString().includes(zip.toString())
+			)
 		})
 		//then we will set state with the new array of fruits 
 		console.log('search results: ', filteredListings)
