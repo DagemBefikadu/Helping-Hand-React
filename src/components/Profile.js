@@ -23,7 +23,7 @@ function Profile() {
         .then(response=>response.json())
         .then(foundItems=>{
           setFavorite(foundItems)
-          console.log('all Items: ',favorite.items )
+          console.log('all Favorite Items: ',favorite )
         })
         .catch(err => {
           console.log(err)
@@ -34,7 +34,7 @@ function Profile() {
 
 return (
         <Routes>
-            <Route path = "/profile"  element={<Profile  /> }  />
+            <Route path ="/profile" element={<Profile /> } />
         </Routes>
 )
 }
