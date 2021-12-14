@@ -1,4 +1,5 @@
 import Profile from "./Profile"
+import Listing from "./Listing"
 
 function TestProfile (props) {
     const items = props.favorite.map(l => {

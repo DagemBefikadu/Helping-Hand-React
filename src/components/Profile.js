@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from "react-router-dom";
+// import TestProfile from './TestProfile'
 
-function Profile() {
+function Profile(props) {
 
-    // console.log('this are the props', props);
-    let [favorite, setFavorite] = useState ([])
+    console.log('these are the favorite props', props);
+    const [foundUserItems, setFoundUserItems] = useState ([])
     // const handleClick = (item) => {
     //     if(faves.indexOf(item)===1) {
     //     //push to s tate
@@ -13,17 +14,17 @@ function Profile() {
     //   }
     //   }
     useEffect(() => {
-        console.log('getting items')
-        getItems()
+        console.log('getting favorite items')
+        getUserItems()
       }, [])
     
       //get all listings from the db
-      const getItems = () => {
-        fetch('http://localhost:8000/items')
+      const getUserItems = () => {
+        fetch('http://localhost:8000/users')
         .then(response=>response.json())
-        .then(foundItems=>{
-          setFavorite(foundItems)
-          console.log('all Favorite Items: ',favorite )
+        .then(foundUser=>{
+          setFoundUserItems(foundUser)
+          console.log('all Favorite Items: ', foundUserItems.favorites)
         })
         .catch(err => {
           console.log(err)
@@ -31,10 +32,10 @@ function Profile() {
       }
     
 
-
+//route
 return (
         <Routes>
-            <Route path ="/profile" element={<Profile /> } />
+            {/* <Route path ="/profile" element={<Profile /> } /> */}
         </Routes>
 )
 }
