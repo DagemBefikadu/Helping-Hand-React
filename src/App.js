@@ -12,6 +12,7 @@ import SignUp from "./components/auth/SignUp";
 import SignIn from "./components/auth/SignIn";
 import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
+import AllListing from "./components/AllListing";
 
 const App = () => {
   //set state
@@ -51,7 +52,7 @@ const App = () => {
     .then(response=>response.json())
     .then(foundItems=>{
       setAllItems(foundItems)
-      console.log('all Items: ', allItems)
+      console.log('all Items: ', foundItems.items)
     })
     .catch(err => {
       console.log(err)
@@ -63,6 +64,7 @@ const App = () => {
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
+        <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
