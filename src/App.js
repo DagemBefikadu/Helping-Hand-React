@@ -14,6 +14,7 @@ import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
+import Profile from "./components/Profile"
 
 
 const App = () => {

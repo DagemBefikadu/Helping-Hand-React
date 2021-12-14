@@ -1,11 +1,20 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from "react-router-dom";
+<<<<<<< HEAD
 import TestProfile from './testprofile';
 
 function Profile() {
 
     // console.log('this are the props', props);
     let [favorite, setFavorite] = useState ([])
+=======
+// import TestProfile from './TestProfile'
+
+function Profile(props) {
+
+    console.log('these are the favorite props', props);
+    const [foundUserItems, setFoundUserItems] = useState ([])
+>>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
     // const handleClick = (item) => {
     //     if(faves.indexOf(item)===1) {
     //     //push to s tate
@@ -14,6 +23,7 @@ function Profile() {
     //   }
     //   }
     useEffect(() => {
+<<<<<<< HEAD
         console.log('getting items', favorite)
         getItems()
       }, [])
@@ -25,11 +35,25 @@ function Profile() {
         .then(foundItems=>{
           setFavorite(foundItems.items)
        console.log('faves',foundItems);
+=======
+        console.log('getting favorite items')
+        getUserItems()
+      }, [])
+    
+      //get all listings from the db
+      const getUserItems = () => {
+        fetch('http://localhost:8000/users')
+        .then(response=>response.json())
+        .then(foundUser=>{
+          setFoundUserItems(foundUser)
+          console.log('all Favorite Items: ', foundUserItems.favorites)
+>>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
         })
         .catch(err => {
           console.log(err)
         })
       }
+<<<<<<< HEAD
 
       const posters = favorite.map(b => {
          <TestProfile favorite={b} key={b.name}/>
@@ -44,6 +68,14 @@ return (
             
             <Route path = "/profile"  element={<Profile  favorite={favorite}/> }  />
            {posters}
+=======
+    
+
+//route
+return (
+        <Routes>
+            {/* <Route path ="/profile" element={<Profile /> } /> */}
+>>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
         </Routes>
 )
 }
