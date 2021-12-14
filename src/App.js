@@ -12,6 +12,7 @@ import SignUp from "./components/auth/SignUp";
 import SignIn from "./components/auth/SignIn";
 import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
+import Contact from "./components/Contact";
 
 const App = () => {
   //set state
@@ -45,7 +46,7 @@ const App = () => {
     getItems()
   }, [])
 
-  //get all listings from the db
+  //get al listings from the db
   const getItems = () => {
     fetch('http://localhost:8000/items')
     .then(response=>response.json())
@@ -63,6 +64,7 @@ const App = () => {
       <Header user={user} />
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
