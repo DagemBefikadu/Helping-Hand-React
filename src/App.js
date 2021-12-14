@@ -12,6 +12,8 @@ import SignUp from "./components/auth/SignUp";
 import SignIn from "./components/auth/SignIn";
 import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
+import AllListing from "./components/AllListing";
+import Contact from "./components/Contact";
 
 
 const App = () => {
@@ -46,13 +48,13 @@ const App = () => {
     getItems()
   }, [])
 
-  //get all listings from the db
+  //get al listings from the db
   const getItems = () => {
     fetch('http://localhost:8000/items')
     .then(response=>response.json())
     .then(foundItems=>{
       setAllItems(foundItems)
-      console.log('all Items: ', allItems)
+      console.log('all Items: ', foundItems.items)
     })
     .catch(err => {
       console.log(err)
@@ -63,8 +65,15 @@ const App = () => {
     <Fragment>
       <Header user={user} />
       <Routes>
+<<<<<<< HEAD
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} /> 
          />
+=======
+        <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
+        <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path ="/profile" element={<Profile /> } />
+>>>>>>> e1fa2d7d861b423ed4b070de461b379105e3c7b6
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}

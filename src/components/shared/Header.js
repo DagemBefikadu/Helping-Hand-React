@@ -29,6 +29,9 @@ const unauthenticatedOptions = (
         <Nav.Link>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Link>
+		<Nav.Link>
+		    <Link to='/listeditems' style={linkStyle}>List</Link>
+        </Nav.Link>
 	</>
 )
 
@@ -37,6 +40,11 @@ const alwaysOptions = (
 		<Nav.Link>
 			<Link to='/' style={linkStyle}>
 				Home
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='/contact' style={linkStyle}>
+				Contact
 			</Link>
 		</Nav.Link>
 	</>
