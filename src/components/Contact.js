@@ -12,7 +12,7 @@ function Contact () {
         fetch('http://localhost:8000/feedbacks')
         .then(response=>response.json())
         .then(foundFeedbacks=>{
-          setAllFeedback(foundFeedbacks)
+          setAllFeedback(foundFeedbacks.feedbacks)
         })
         .catch(err => {
           console.log(err)
@@ -42,10 +42,15 @@ function Contact () {
         console.log('all Feedback: ', allFeedback.feedbacks)
     }, [])
 
+    let feedbackIndex = allFeedback.map(f => {
+        console.log(f)
+        return <Feedback feedback={f} key={f._id}/>
+    })
+
     return (
         <div>
         <NewFeedback createFeedback={createFeedback}/>
-        {/* <Feedback allFeedback={allFeedback.feedbacks}/> */}
+        {feedbackIndex}
         </div>
     )
 }
