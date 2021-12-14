@@ -13,6 +13,7 @@ import SignIn from "./components/auth/SignIn";
 import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 
+
 const App = () => {
   //set state
   const [user, setUser] = useState(null);
@@ -62,7 +63,8 @@ const App = () => {
     <Fragment>
       <Header user={user} />
       <Routes>
-        <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
+        <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} /> 
+         />
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
