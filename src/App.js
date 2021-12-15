@@ -70,7 +70,7 @@ const App = () => {
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact user={user}/>} />
-        <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
+        <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
         <Route path ="/profile" element={<Profile /> } />
         <Route path ="/testprofile" element={<TestMap /> } />
 
