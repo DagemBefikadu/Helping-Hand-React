@@ -15,6 +15,8 @@ import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
+import TestMap from "./components/testMap";
+
 
 const App = () => {
   //set state
@@ -69,6 +71,8 @@ const App = () => {
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path ="/profile" element={<Profile /> } />
+        <Route path ="/testprofile" element={<TestMap /> } />
+
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
