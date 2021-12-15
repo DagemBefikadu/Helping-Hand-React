@@ -4,7 +4,6 @@ import Feedback from './Feedback'
 import NewFeedback from './NewFeedback'
 
 //import axios
-import apiUrl from '../apiConfig'
 import axios from 'axios'
 function Contact (props) {
 
@@ -48,6 +47,22 @@ function Contact (props) {
     .catch(err => console.log(err))
 }
 
+    //write a function that deletes feedback
+    const deleteFeedback = (fId) => {
+    axios({
+		url: `http://localhost:8000/feedbacks/${fId}`,
+		method: 'DELETE',
+        headers: {
+			Authorization: `Token token=${props.user.token}`,
+		}
+	})
+    .then(res => console.log('server response:', res))
+    .then(() => { 
+        getFeedback() 
+    })
+    .catch(err => console.log(err))
+}
+
     //set feedback state when Contact mounts
     useEffect(() => {
         getFeedback()
@@ -56,7 +71,7 @@ function Contact (props) {
 
     let feedbackIndex = allFeedback.map(f => {
         console.log(f)
-        return <Feedback feedback={f} key={f._id}/>
+        return <Feedback feedback={f} user={props.user} deleteFeedback={deleteFeedback} key={f._id}/>
     })
 
     return (
