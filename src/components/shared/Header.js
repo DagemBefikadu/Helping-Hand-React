@@ -49,6 +49,10 @@ const alwaysOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
+			<Link to='/about' style={linkStyle}>
+				About
+			</Link>
+		</Nav.Link>
 		    <Link to='/listeditems' style={linkStyle}>List</Link>
         </Nav.Link>
 	</>

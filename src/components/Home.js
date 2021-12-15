@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ListingIndex from './ListingIndex'
+import AllListing from './AllListing'
 
 function Home (props) {
 	// const { msgAlert, user } = props
@@ -48,7 +49,8 @@ function Home (props) {
 
 				<input type="submit"/>
             </form>
-		<ListingIndex listings={searchResults}/>
+		{/* <ListingIndex listings={searchResults}/> */}
+		<AllListing allItems={searchResults} />
         </>
     )
 }
