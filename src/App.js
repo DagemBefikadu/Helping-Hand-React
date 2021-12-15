@@ -71,7 +71,7 @@ const App = () => {
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact user={user}/>} />
         <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
-        <Route path ="/profile" element={<Profile /> } />
+        <Route path ="/profile" element={<Profile user={user}/> } />
         <Route path ="/testprofile" element={<TestMap /> } />
 
         <Route
