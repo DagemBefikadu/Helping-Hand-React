@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from "react-router-dom";
-// import TestProfile from './TestProfile'
 
-function Profile(props) {
+function Profile() {
 
-    console.log('these are the favorite props', props);
-    const [foundUserItems, setFoundUserItems] = useState ([])
+    // console.log('these are the favorite props', props);
+    const [userItems, setUserItems] = useState ([])
     // const handleClick = (item) => {
     //     if(faves.indexOf(item)===1) {
     //     //push to s tate
@@ -14,7 +13,7 @@ function Profile(props) {
     //   }
     //   }
     useEffect(() => {
-        console.log('getting favorite items')
+       
         getUserItems()
       }, [])
     
@@ -23,20 +22,28 @@ function Profile(props) {
         fetch('http://localhost:8000/users')
         .then(response=>response.json())
         .then(foundUser=>{
-          setFoundUserItems(foundUser)
-          console.log('all Favorite Items: ', foundUserItems.favorites)
+          setUserItems(foundUser.users)
+          console.log('all users: ', foundUser.users)
         })
         .catch(err => {
           console.log(err)
         })
       }
+
+      const userProfileList = userItems.map(u => {
+        console.log('This is map items',u.favorites)
+        return <li>{u.favorites} </li> 
+    // // // // //     // return <Profile foundUserItem={u} key={u._id}/>
+    })
+
+      
     
 
 //route
 return (
-        <Routes>
-            {/* <Route path ="/profile" element={<Profile /> } /> */}
-        </Routes>
+      <div>
+          {userProfileList}
+      </div>
 )
 }
 export default Profile

@@ -15,7 +15,12 @@ import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
+<<<<<<< HEAD
 import ItemDetail from "./components/ItemDetail"
+=======
+import TestMap from "./components/testMap";
+
+>>>>>>> f79602ec6545cca963df699be4f6ca24b2a41f7d
 
 const App = () => {
   //set state
@@ -71,6 +76,8 @@ const App = () => {
         <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
         <Route path="/contact" element={<Contact />} />
         <Route path ="/profile" element={<Profile /> } />
+        <Route path ="/testprofile" element={<TestMap /> } />
+
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
