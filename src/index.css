@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.headshot {
+  max-height: 12vh;
+  border-radius: 100px;
+  border: slategray solid 3px;
+  margin: 10px;
+}
+
+.logo {
+  max-height: 3vh;
+  border-radius: 4px;
+  margin: 20px;
+}

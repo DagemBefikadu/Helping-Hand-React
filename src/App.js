@@ -17,6 +17,8 @@ import Contact from "./components/Contact";
 import Profile from "./components/Profile"
 import ItemDetail from "./components/ItemDetail"
 import TestMap from "./components/testMap";
+import About from "./components/About";
+
 
 const App = () => {
   //set state
@@ -73,6 +75,7 @@ const App = () => {
         <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
         <Route path ="/profile" element={<Profile /> } />
         <Route path ="/testprofile" element={<TestMap /> } />
+        <Route path ="/about" element={<About /> } />
 
         <Route
           path="/sign-up"

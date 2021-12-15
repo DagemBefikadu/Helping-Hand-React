@@ -47,6 +47,11 @@ const alwaysOptions = (
 				Contact
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='/about' style={linkStyle}>
+				About
+			</Link>
+		</Nav.Link>
 	</>
 )
 
