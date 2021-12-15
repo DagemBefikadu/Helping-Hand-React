@@ -9,7 +9,6 @@ import Profile from './components/Profile'
 ReactDOM.render(
   <BrowserRouter>
     <App />
-    <Profile/>
   </BrowserRouter>,
   document.getElementById('root')
 );

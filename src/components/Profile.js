@@ -1,20 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from "react-router-dom";
-<<<<<<< HEAD
-import TestProfile from './testprofile';
 
 function Profile() {
 
-    // console.log('this are the props', props);
-    let [favorite, setFavorite] = useState ([])
-=======
-// import TestProfile from './TestProfile'
-
-function Profile(props) {
-
-    console.log('these are the favorite props', props);
-    const [foundUserItems, setFoundUserItems] = useState ([])
->>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
+    // console.log('these are the favorite props', props);
+    const [userItems, setUserItems] = useState ([])
     // const handleClick = (item) => {
     //     if(faves.indexOf(item)===1) {
     //     //push to s tate
@@ -23,20 +13,7 @@ function Profile(props) {
     //   }
     //   }
     useEffect(() => {
-<<<<<<< HEAD
-        console.log('getting items', favorite)
-        getItems()
-      }, [])
-    
-      //get all listings from the db
-     const getItems = () => {
-        fetch('http://localhost:8000/items')
-        .then(response=>response.json())
-        .then(foundItems=>{
-          setFavorite(foundItems.items)
-       console.log('faves',foundItems);
-=======
-        console.log('getting favorite items')
+       
         getUserItems()
       }, [])
     
@@ -45,38 +22,28 @@ function Profile(props) {
         fetch('http://localhost:8000/users')
         .then(response=>response.json())
         .then(foundUser=>{
-          setFoundUserItems(foundUser)
-          console.log('all Favorite Items: ', foundUserItems.favorites)
->>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
+          setUserItems(foundUser.users)
+          console.log('all users: ', foundUser.users)
         })
         .catch(err => {
           console.log(err)
         })
       }
-<<<<<<< HEAD
 
-      const posters = favorite.map(b => {
-         <TestProfile favorite={b} key={b.name}/>
-      })
+      const userProfileList = userItems.map(u => {
+        console.log('This is map items',u.favorites)
+        return <li>{u.favorites} </li> 
+    // // // // //     // return <Profile foundUserItem={u} key={u._id}/>
+    })
 
-
-    
-
-
-return (
-        <Routes>
-            
-            <Route path = "/profile"  element={<Profile  favorite={favorite}/> }  />
-           {posters}
-=======
+      
     
 
 //route
 return (
-        <Routes>
-            {/* <Route path ="/profile" element={<Profile /> } /> */}
->>>>>>> b518ce07f6ae8b63e5ffe6c371a9fd8418a7546b
-        </Routes>
+      <div>
+          {userProfileList}
+      </div>
 )
 }
 export default Profile

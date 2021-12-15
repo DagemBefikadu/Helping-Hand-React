@@ -15,6 +15,7 @@ import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
+import TestMap from "./components/testMap";
 
 
 const App = () => {
@@ -66,15 +67,12 @@ const App = () => {
     <Fragment>
       <Header user={user} />
       <Routes>
-<<<<<<< HEAD
-        <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} /> 
-         />
-=======
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path ="/profile" element={<Profile /> } />
->>>>>>> e1fa2d7d861b423ed4b070de461b379105e3c7b6
+        <Route path ="/testprofile" element={<TestMap /> } />
+
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
