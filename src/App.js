@@ -15,6 +15,7 @@ import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
+import ItemDetail from "./components/ItemDetail"
 
 const App = () => {
   //set state
@@ -67,6 +68,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
+        <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
         <Route path="/contact" element={<Contact />} />
         <Route path ="/profile" element={<Profile /> } />
         <Route
