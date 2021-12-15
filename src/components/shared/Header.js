@@ -53,6 +53,7 @@ const alwaysOptions = (
 				About
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
 		    <Link to='/listeditems' style={linkStyle}>List</Link>
         </Nav.Link>
 	</>
