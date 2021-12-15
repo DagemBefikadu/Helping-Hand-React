@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react'
 import { Route, Routes } from "react-router-dom";
 
@@ -19,22 +20,23 @@ function Profile() {
     
       //get all listings from the db
       const getUserItems = () => {
-        fetch('http://localhost:8000/users')
+       axios.get('http://localhost:8000/users/favorites')
         .then(response=>response.json())
         .then(foundUser=>{
-          setUserItems(foundUser.users)
-          console.log('all users: ', foundUser.users)
+          console.log('hello faves',foundUser)
+          setUserItems(foundUser)
+          // console.log('all users: ', foundUser.users)
         })
         .catch(err => {
           console.log(err)
         })
       }
 
-      const userProfileList = userItems.map(u => {
-        console.log('This is map items',u.favorites)
-        return <li>{u.favorites} </li> 
-    // // // // //     // return <Profile foundUserItem={u} key={u._id}/>
-    })
+    //   const userProfileList = userItems.map(u => {
+    //     console.log('This is map items',u)
+    //     // return <li>{u.favorites} </li> 
+    // // // // // //     // return <Profile foundUserItem={u} key={u._id}/>
+    // })
 
       
     
@@ -42,7 +44,7 @@ function Profile() {
 //route
 return (
       <div>
-          {userProfileList}
+          {/* {userProfileList} */}
       </div>
 )
 }
