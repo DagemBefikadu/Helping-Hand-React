@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
+//import children components
 import Feedback from './Feedback'
 import NewFeedback from './NewFeedback'
-function Contact () {
+
+//import axios
+import axios from 'axios'
+function Contact (props) {
 
     //initialize state to hold feedback
     const [allFeedback, setAllFeedback] = useState([])
@@ -23,18 +27,41 @@ function Contact () {
     const createFeedback = (e) => {
         e.preventDefault()
         console.log('form data: ', e.target.review.value)
-        let preJSONBody = {
-            text: e.target.review.value
-        }
-        fetch('http://localhost:8000/feedbacks', {
-            method: 'POST',
-            body: JSON.stringify(preJSONBody),
-            headers: {'Content-Type':'application/json'}
-        })
-        .then(response=> console.log('POST res: ', response))
-        .then( () => getFeedback())
-        .catch(err=>{console.log(err)})
-    }
+    axios({
+		url: 'http://localhost:8000/feedbacks/',
+		method: 'POST',
+        headers: {
+			Authorization: `Token token=${props.user.token}`,
+		},
+		data: {
+			feedback: {
+				text: e.target.review.value
+			},
+		},
+	})
+    .then(res => console.log('server response:', res))
+    .then(() => { 
+        e.target.review.value = ''
+        getFeedback() 
+    })
+    .catch(err => console.log(err))
+}
+
+    //write a function that deletes feedback
+    const deleteFeedback = (fId) => {
+    axios({
+		url: `http://localhost:8000/feedbacks/${fId}`,
+		method: 'DELETE',
+        headers: {
+			Authorization: `Token token=${props.user.token}`,
+		}
+	})
+    .then(res => console.log('server response:', res))
+    .then(() => { 
+        getFeedback() 
+    })
+    .catch(err => console.log(err))
+}
 
     //set feedback state when Contact mounts
     useEffect(() => {
@@ -44,7 +71,7 @@ function Contact () {
 
     let feedbackIndex = allFeedback.map(f => {
         console.log(f)
-        return <Feedback feedback={f} key={f._id}/>
+        return <Feedback feedback={f} user={props.user} deleteFeedback={deleteFeedback} key={f._id}/>
     })
 
     return (
