@@ -16,7 +16,7 @@ import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
 import ItemDetail from "./components/ItemDetail"
-import TestMap from "./components/testMap";
+import FavoriteList from "./components/profile/FavoriteList";
 
 const App = () => {
   //set state
@@ -72,7 +72,7 @@ const App = () => {
         <Route path="/contact" element={<Contact user={user}/>} />
         <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
         <Route path ="/profile" element={<Profile user={user}/> } />
-        <Route path ="/testprofile" element={<TestMap /> } />
+        <Route path ="/favorites" element={<FavoriteList user={user}/> } />
 
         <Route
           path="/sign-up"
