@@ -78,7 +78,6 @@ const App = () => {
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
         <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
 
-
         <Route
           path="/sign-up"
           element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
