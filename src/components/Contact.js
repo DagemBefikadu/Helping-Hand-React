@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 //import children components
 import Feedback from './Feedback'
 import NewFeedback from './NewFeedback'
+import messages from './shared/AutoDismissAlert/messages'
 
 //import axios
 import axios from 'axios'
@@ -26,26 +27,35 @@ function Contact (props) {
     //write a function that posts feedback to the db
     const createFeedback = (e) => {
         e.preventDefault()
-        console.log('form data: ', e.target.review.value)
-    axios({
-		url: 'http://localhost:8000/feedbacks/',
-		method: 'POST',
-        headers: {
-			Authorization: `Token token=${props.user.token}`,
-		},
-		data: {
-			feedback: {
-				text: e.target.review.value
-			},
-		},
-	})
-    .then(res => console.log('server response:', res))
-    .then(() => { 
-        e.target.review.value = ''
-        getFeedback() 
-    })
-    .catch(err => console.log(err))
-}
+
+        if (!props.user) {
+            // msgAlert({
+            //     heading: 'Sign In Failed with error: ' + error.message,
+            //     message: messages.signInFailure,
+            //     variant: 'danger',
+            // })
+        } else {
+            console.log('form data: ', e.target.review.value)
+            axios({
+                url: 'http://localhost:8000/feedbacks/',
+                method: 'POST',
+                headers: {
+                    Authorization: `Token token=${props.user.token}`,
+                },
+                data: {
+                    feedback: {
+                        text: e.target.review.value
+                    },
+                },
+            })
+            .then(res => console.log('server response:', res))
+            .then(() => { 
+                e.target.review.value = ''
+                getFeedback() 
+            })
+            .catch(err => console.log(err))
+        }
+    }
 
     //write a function that deletes feedback
     const deleteFeedback = (fId) => {
