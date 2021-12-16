@@ -34,9 +34,7 @@ const unauthenticatedOptions = (
         <Nav.Link>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
         </Nav.Link>
-		<Nav.Link>
-		    <Link to='/listeditems' style={linkStyle}>List</Link>
-        </Nav.Link>
+
 	</>
 )
 
@@ -48,11 +46,23 @@ const alwaysOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
+		    <Link to='/profile' style={linkStyle}>Profile</Link>
+        </Nav.Link>
+		<Nav.Link>
 			<Link to='/contact' style={linkStyle}>
 				Contact
 			</Link>
 		</Nav.Link>
-	
+
+		<Nav.Link>
+			<Link to='/about' style={linkStyle}>
+				About
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+		    <Link to='/listeditems' style={linkStyle}>List</Link>
+        </Nav.Link>
+
 	</>
 )
 

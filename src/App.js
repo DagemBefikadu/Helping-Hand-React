@@ -16,6 +16,10 @@ import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/Profile"
 import ItemDetail from "./components/ItemDetail"
+import Form from "./components/Form";
+
+import About from "./components/About";
+
 import FavoriteList from "./components/profile/FavoriteList";
 
 const App = () => {
@@ -70,9 +74,14 @@ const App = () => {
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact user={user}/>} />
-        <Route path="/listeditems/:id" element={<ItemDetail allItems={allItems._id}/>}></Route>
-        <Route path ="/profile" element={<Profile user={user}/> } />
-        <Route path ="/favorites" element={<FavoriteList /> } />
+
+
+        <Route path ="/about" element={<About /> } />
+        <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
+        <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
+        <Route path ="/favorites" element={<FavoriteList user={user}/> } />
+        <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
+
 
         <Route
           path="/sign-up"
