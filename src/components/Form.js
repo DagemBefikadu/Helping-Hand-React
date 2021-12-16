@@ -1,5 +1,6 @@
 import { useState ,useEffect} from 'react'
 import axios from 'axios'
+<<<<<<< HEAD
 
 
 function Form(props) {
@@ -27,6 +28,13 @@ function Form(props) {
     //     props.refreshItem()
     //   }, [])
 
+=======
+
+
+function Form(props) {
+    console.log('I am a form prop', props)
+    const [newItem, setNewItem] = useState([])
+>>>>>>> f8f52e358c1baa8e43ab9653eac8be1885963262
 
     //write a function that posts feedback to the db
     const createItem = (e) => {
@@ -68,7 +76,10 @@ function Form(props) {
 
     return (
    
+<<<<<<< HEAD
     <div>
+=======
+>>>>>>> f8f52e358c1baa8e43ab9653eac8be1885963262
         <form onSubmit ={createItem}>
             <div>
                 <label htmlFor ='name'>Name:</label>
@@ -104,9 +115,16 @@ function Form(props) {
 
            <input type="submit" value="Post"/>
          </form>
+<<<<<<< HEAD
          </div>
+=======
+>>>>>>> f8f52e358c1baa8e43ab9653eac8be1885963262
     )
 }
 
 
+<<<<<<< HEAD
 export default Form
+=======
+export default Form
+>>>>>>> f8f52e358c1baa8e43ab9653eac8be1885963262

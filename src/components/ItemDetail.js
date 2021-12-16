@@ -2,10 +2,13 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function ItemDetail(props) {
 
     const[singleItem, setSingleItem] = useState([])
+
+    const navigate = useNavigate()
 
     let newParam = useParams()
     // let content = props.singleItem ? props.singleItem[newParam.id] : 'error'
@@ -33,8 +36,11 @@ export default function ItemDetail(props) {
             },
         })
         .then(res => console.log('server response:', res))
+        .then(() => navigate('/favorites'))
         .catch(err => console.log(err))
     }
+
+
 
     return (
         <div>
@@ -50,6 +56,7 @@ export default function ItemDetail(props) {
             </container>
             <br />
             <button onClick={createFav}>Fave Me</button>
+
         </div>
     )
 }

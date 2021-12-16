@@ -18,6 +18,11 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='/profile' style={linkStyle}>
+				Profile
+			</Link>
+		</Nav.Link>
 	</>
 )
 
@@ -48,6 +53,7 @@ const alwaysOptions = (
 				Contact
 			</Link>
 		</Nav.Link>
+
 		<Nav.Link>
 			<Link to='/about' style={linkStyle}>
 				About
@@ -56,6 +62,7 @@ const alwaysOptions = (
 		<Nav.Link>
 		    <Link to='/listeditems' style={linkStyle}>List</Link>
         </Nav.Link>
+
 	</>
 )
 
