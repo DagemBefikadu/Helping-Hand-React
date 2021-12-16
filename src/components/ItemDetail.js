@@ -40,31 +40,7 @@ export default function ItemDetail(props) {
         .catch(err => console.log(err))
     }
 
-    // const deleteFav = () => {
-    //     axios({
-    //         url: `http://localhost:8000/items/favorites/${newParam.id}`,
-    //         method: 'DELETE',
-    //         headers: {
-    //             Authorization: `Token token=${props.user.token}`           
-    //         },
-    //     })
-    //     .then(res => console.log('server response:', res))
-    //     .then(() => navigate('/favorites'))
-    //     .catch(err => console.log(err))
-    // }
 
-    // const favButton = () => {
-    //     console.log('return a single fav',newParam)
-    //     if (newParam === props.user.favorites) {
-    //         deleteFav()
-    //     } else {
-    //         createFav()
-    //     }
-    // }
-
-    // const filteredFav = props.user.favorites.filter(f => {
-    //     return 
-    // })
 
     return (
         <div>
@@ -80,8 +56,7 @@ export default function ItemDetail(props) {
             </container>
             <br />
             <button onClick={createFav}>Fave Me</button>
-            {/* <button onClick={deleteFav}>Delete Fav</button> */}
-            {/* <button onClick={ props.user.favorites.includes(newParam.id) ? deleteFav : createFav}>{props.user.favorites.includes(newParam.id) ? 'Delete Fav' : 'Fave Me'}</button> */}
+
         </div>
     )
 }
