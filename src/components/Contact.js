@@ -6,7 +6,7 @@ import NewFeedback from './NewFeedback'
 //import axios
 import axios from 'axios'
 function Contact (props) {
-
+console.log('contact', props);
     //initialize state to hold feedback
     const [allFeedback, setAllFeedback] = useState([])
 
