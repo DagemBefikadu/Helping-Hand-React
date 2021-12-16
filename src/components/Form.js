@@ -85,8 +85,4 @@ function Form(props) {
 }
 
 
-<<<<<<< HEAD
-
-=======
 export default Form
->>>>>>> 5e65dc725370e876d61045245dbb1be0ec38f092
