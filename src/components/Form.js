@@ -1,85 +1,92 @@
-import { useState} from 'react'
+import { useState ,useEffect} from 'react'
+import axios from 'axios'
+
 
 function Form(props) {
+    console.log('I am a form prop', props)
+    const [newItem, setNewItem] = useState([])
 
-    const [newFaves, setNewFaves] = useState({
-        name: '',
-        description: '',
-        location: '', 
-        zipcode: '',
-        image: '',
-        category: ''
-    })
-
-    const handleChange = (e) => {
-        setNewFaves({...newFaves, [e.target.name] :e.target.value})
-    }
-
-    const postFaves = (e) => {
+    //write a function that posts feedback to the db
+    const createItem = (e) => {
         e.preventDefault()
-        let preJSONBody = {
-            
-            name: newFaves.name,
-            description: newFaves.description,
-            location: newFaves.location,
-            zipcode: Number(newFaves.zipcode),
-            image: newFaves.image,
-            category: newFaves.category
-        }
-        fetch('http://localhost:8000/faves', {
-            method: 'POST',
-            body: JSON.stringify(preJSONBody),
-            headers: { 'Content-Type' : 'application/json'}
-
+        console.log('form data: ', e.target.value)
+        console.log('name: ', e.target.name.value )
+        console.log('description: ', e.target.description.value )
+        console.log('location: ', e.target.location.value )
+        console.log('category: ', e.target.category.value )
+        console.log('owner: ', props.user._id )
+    axios({
+		url: 'http://localhost:8000/items/',
+		method: 'POST',
+        headers: {
+			Authorization: `Token token=${props.user.token}`,
+		},
+		data: {
+			items: {
+				name: e.target.name.value,
+                description: e.target.description.value,
+                location: e.target.location.value,
+                zipcode: e.target.zipcode.value,
+                category: e.target.category.value,     
+                owner: props.user._id           
+			},
+		},
+	})
+    .then(res => console.log('server response:', res))
+    .then(() => { 
+        props.refreshItem() 
+        e.target.name.value = ''
+        e.target.description.value = ''
+        e.target.location.value = ''
+        e.target.zipcode.value = ''
+        e.target.category.value = ''
     })
-    .then(response=> response.json())
-    .then(faves=>{
-        props.refreshedfaves()
-        setNewFaves({
-            name: newFaves.name,
-            description: newFaves.description,
-            location: newFaves.location,
-            zipcode: Number(newFaves.zipcode),
-            image: newFaves.image,
-            category: newFaves.category
-        })
-
-    })
-    .catch(err=>console.error(err))
-    }
+    .catch(err => console.log(err))
+}
 
     return (
-        <form onSubmit={postFaves}>
+   
+        <form onSubmit ={createItem}>
             <div>
                 <label htmlFor ='name'>Name:</label>
                 <input type='text' name='name' id='name' 
-                onChange ={handleChange}  value={newFaves.name}/>
+       
+                  value={newItem.name}/>
             </div>
             <div> 
                 <label htmlFor ='description'>description:</label>
                 <input type='text' name='description' id='description' 
-                onChange ={handleChange}  value={newFaves.description}/>
+                  value={newItem.description}/>
             </div>
             <div>
                 <label htmlFor ='location'>location:</label>
                 <input type='text' name='location' id='location' 
-                onChange ={handleChange}  value={newFaves.location}/>
+                  value={newItem.location}/>
             </div>
             <div>
                 <label htmlFor ='zipcode'>:</label>
                 <input type='number' name='zipcode' id='zipcode' 
-                onChange ={handleChange}  value={newFaves.reward}/>
+                  value={newItem.zipcode}/>
             </div>
             <div>
-                <label htmlFor ='captured'>Captured:</label>
-                <input type='checkbox' name='captured' id='captured' 
-                onChange ={handleCheck} checked={newBounty.captured? 'checked':''}/>
+                <label htmlFor ='category'>Category:</label>
+                <input type='test' name='category' id='category' 
+                  value={newItem.category}/>
             </div>
+             {/* <div>
+                <label htmlFor ='image'>Upload Image:</label>
+                <input type="file" onChange={onFileChange} />
+                <button onClick={onFileUpload}></button>
+                </div>  */}
 
-            <input type="submit" value="Post"/>
-        </form>
+           <input type="submit" value="Post"/>
+         </form>
     )
 }
 
 
+<<<<<<< HEAD
 
+=======
+export default Form
+>>>>>>> 5e65dc725370e876d61045245dbb1be0ec38f092

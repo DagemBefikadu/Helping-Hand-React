@@ -1,10 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import AllListing from '../AllListing';
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import IndividualFavorite from '../IndividualFavorite';
 
 function FavoriteList(props){
   // console.log('props', props)
   const [userItems, setUserItems] = useState([])
+
+  const navigate = useNavigate()
+  let newParam = useParams()
 
   const getUserItems = () => {
     axios({
@@ -25,6 +31,23 @@ function FavoriteList(props){
       })
   }
 
+  const deleteFav = (id) => {
+    console.log('Deleting', id)
+    axios({
+        url: `http://localhost:8000/items/favorites/${id}`,
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token token=${props.user.token}`           
+        },
+    })
+    .then(res => {
+      getUserItems()
+      console.log('server response:', res)
+    })
+    .then(() => navigate('/favorites'))
+    .catch(err => console.log(err))
+}
+
 
   useEffect(() => {
 
@@ -36,7 +59,9 @@ function FavoriteList(props){
 return (
 <div>
     <h2>My favorites:</h2>
-    <AllListing allItems={userItems}/>
+    <IndividualFavorite allItems={userItems} deleteClick={deleteFav}/>
+    {/* <button onClick={deleteFav}>Delete Fav</button> */}
+
 </div>
 )
 }

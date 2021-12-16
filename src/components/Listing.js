@@ -1,14 +1,19 @@
 
-function Listing (props) {
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+
+export default function Listing(props) {
     return (
-        <div className="listing">
-            <h2>Item Name: {props.listing.name}</h2>
-            <h3>Category: {props.listing.category}</h3>
-            <img src={props.listing.image} alt={props.listing.name}/>
-            <h6>{props.listing.description}</h6>
-            <h5>{props.listing.zipcode}</h5>
+        <div>
+            <ul>
+                <li>
+                    <Link to={`/listeditems/${props.listing._id}`}>{props.listing.name}</Link>
+                    <br />
+                    <img src={props.listing.image} alt="" />
+                    <br />
+                </li>
+            </ul>
         </div>
     )
 }
-
-export default Listing
