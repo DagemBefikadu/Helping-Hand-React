@@ -10,7 +10,8 @@ function Feedback (props) {
     } else {
         return (
             <div className="feedbackContainer">
-               <div ><p>{props.feedback.text}</p></div>
+                <p>{props.feedback.text}</p>
+                <h5>{props.feedback.owner.name}</h5>
            </div>
        )
     }

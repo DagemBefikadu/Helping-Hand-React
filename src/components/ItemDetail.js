@@ -50,6 +50,7 @@ export default function ItemDetail(props) {
             </container>
             <br />
             <button onClick={createFav}>Fave Me</button>
+            {/* Delete or No addtitional button */}
         </div>
     )
 }
