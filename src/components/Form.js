@@ -28,7 +28,8 @@ function Form(props) {
                 location: e.target.location.value,
                 zipcode: e.target.zipcode.value,
                 category: e.target.category.value,     
-                owner: props.user._id           
+                owner: props.user._id,      
+                image: e.target.image.value     
 			},
 		},
 	})
@@ -73,11 +74,11 @@ function Form(props) {
                 <input type='test' name='category' id='category' 
                   value={newItem.category}/>
             </div>
-             {/* <div>
+             <div>
                 <label htmlFor ='image'>Upload Image:</label>
-                <input type="file" onChange={onFileChange} />
+                <input type="text" name="image" id="image" onChange={onFileChange} />
                 <button onClick={onFileUpload}></button>
-                </div>  */}
+                </div> 
 
            <input type="submit" value="Post"/>
          </form>
