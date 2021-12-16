@@ -64,7 +64,7 @@ function Form(props) {
                   value={newItem.location}/>
             </div>
             <div>
-                <label htmlFor ='zipcode'>:</label>
+                <label htmlFor ='zipcode'>zipcode:</label>
                 <input type='number' name='zipcode' id='zipcode' 
                   value={newItem.zipcode}/>
             </div>
