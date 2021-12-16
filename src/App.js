@@ -74,7 +74,7 @@ const App = () => {
         <Route path="/contact" element={<Contact user={user}/>} />
         <Route path ="/about" element={<About /> } />
         <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
-        <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
+        <Route path ="/profile" element={<Profile refreshItem={getItems} /> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
         <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
 
