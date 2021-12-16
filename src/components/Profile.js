@@ -16,11 +16,7 @@ console.log('profile props', props);
     <Link to={{pathname: "/favorites"}}>
         My Favorites
       </Link >
-
-      </div>
-  
-    
-
+   </div>
   )
 }
 export default Profile

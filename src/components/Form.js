@@ -46,7 +46,6 @@ function Form(props) {
 
     return (
    
-    
         <form onSubmit ={createItem}>
             <div>
                 <label htmlFor ='name'>Name:</label>
