@@ -6,6 +6,22 @@ function Form(props) {
     console.log('I am a form prop', props)
     const [newItem, setNewItem] = useState([])
 
+
+
+    const addCreated = (itemId) => {
+        console.log('pushing: ', itemId)
+        axios({
+            url: `http://localhost:8000/items/mylistings/${itemId}`,
+            method: 'PATCH',
+            headers: {
+                Authorization: `Token token=${props.user.token}`,
+            }
+        })
+        .then(res => console.log('res: ', res))
+        .catch(err => console.log(err))
+    }
+
+
     //write a function that posts feedback to the db
     const createItem = (e) => {
         e.preventDefault()
@@ -15,6 +31,7 @@ function Form(props) {
         console.log('location: ', e.target.location.value )
         console.log('category: ', e.target.category.value )
         console.log('owner: ', props.user._id )
+        console.log('e.target.image.value', e.target.image.value)
     axios({
 		url: 'http://localhost:8000/items/',
 		method: 'POST',
@@ -28,11 +45,15 @@ function Form(props) {
                 location: e.target.location.value,
                 zipcode: e.target.zipcode.value,
                 category: e.target.category.value,     
-                owner: props.user._id           
+                owner: props.user._id,
+                image: e.target.image.value           
 			},
 		},
 	})
-    .then(res => console.log('server response:', res))
+    .then(res => {
+        console.log('server response:', res)
+        addCreated(res.data.item._id)
+    })
     .then(() => { 
         props.refreshItem() 
         e.target.name.value = ''
@@ -64,7 +85,11 @@ function Form(props) {
                   value={newItem.location}/>
             </div>
             <div>
+<<<<<<< HEAD
                 <label htmlFor ='zipcode'>zipcode:</label>
+=======
+                <label htmlFor ='zipcode'>Zipcode:</label>
+>>>>>>> 6f0119efdea760e2a072d0e20c65f9890892595a
                 <input type='number' name='zipcode' id='zipcode' 
                   value={newItem.zipcode}/>
             </div>
@@ -73,11 +98,10 @@ function Form(props) {
                 <input type='test' name='category' id='category' 
                   value={newItem.category}/>
             </div>
-             {/* <div>
+             <div>
                 <label htmlFor ='image'>Upload Image:</label>
-                <input type="file" onChange={onFileChange} />
-                <button onClick={onFileUpload}></button>
-                </div>  */}
+                <input type="text" name="image" id="image" />
+                </div> 
 
            <input type="submit" value="Post"/>
          </form>
