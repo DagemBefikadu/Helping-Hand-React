@@ -5,18 +5,24 @@ const linkStyle = {
   textDecoration: 'none'
 }
 function Profile(props) {
-console.log('profile props', props);
+  console.log('profile props', props);
 
   //route
   return (
     <div>
-      <Form refreshItem ={props.refreshItem} user ={props.user} />
-      <h1>Hello</h1>
-      
-    <Link to={{pathname: "/favorites"}}>
-        My Favorites
-      </Link >
-   </div>
+      <Form refreshItem={props.refreshItem} user={props.user} />
+      <h1>My Profile</h1>
+      <div>
+        <Link to={{ pathname: "/favorites" }}>
+          My Favorites
+        </Link >
+      </div>
+      <div>
+        <Link to={{ pathname: "/mylistings" }}>
+          My Listings
+        </Link >
+      </div>
+    </div>
   )
 }
 export default Profile
