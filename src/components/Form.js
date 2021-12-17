@@ -5,30 +5,6 @@ function Form(props) {
     console.log('I am a form prop', props)
     const [newItem, setNewItem] = useState([])
 
-<<<<<<< HEAD
-    // const getItems = () => {
-    //     axios({
-    //       url: 'http://localhost:8000/items',
-    //       method: 'GET',
-    //     //   headers: {
-    //     //     'Authorization': `Token token=${props.user.token}`
-    //     //   }
-    //     })
-    //       .then(foundItem => {
-    //         // console.log('hello items', foundItem.data.items)
-    //         setNewItem(foundItem.data.items)
-    //       })
-    //       .catch((error) => {
-    //         console.error(error)
-    //       })
-    //   }
-    
-    //   useEffect(() => {
-    //     props.refreshItem()
-    //   }, [])
-=======
-
-
     const addCreated = (itemId) => {
         console.log('pushing: ', itemId)
         axios({
@@ -41,8 +17,6 @@ function Form(props) {
         .then(res => console.log('res: ', res))
         .catch(err => console.log(err))
     }
->>>>>>> 6f0119efdea760e2a072d0e20c65f9890892595a
-
 
     //write a function that posts feedback to the db
     const createItem = (e) => {
@@ -52,7 +26,7 @@ function Form(props) {
         console.log('description: ', e.target.description.value )
         console.log('location: ', e.target.location.value )
         console.log('category: ', e.target.category.value )
-        console.log('owner: ', props.user._id )
+        // console.log('owner: ', props.user._id )
         console.log('e.target.image.value', e.target.image.value)
     axios({
 		url: 'http://localhost:8000/items/',
@@ -67,8 +41,7 @@ function Form(props) {
                 location: e.target.location.value,
                 zipcode: e.target.zipcode.value,
                 category: e.target.category.value,     
-                owner: props.user._id,
-                image: e.target.image.value           
+                owner: props.user._id           
 			},
 		},
 	})
@@ -117,7 +90,7 @@ function Form(props) {
                 <input type='test' name='category' id='category' 
                   value={newItem.category}/>
             </div>
-             <div>
+            <div>
                 <label htmlFor ='image'>Upload Image:</label>
                 <input type="text" name="image" id="image" />
                 </div> 
