@@ -1,9 +1,12 @@
 import { useState ,useEffect} from 'react'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 function Form(props) {
     console.log('I am a form prop', props)
     const [newItem, setNewItem] = useState([])
+
+    const navigate = useNavigate()
 
     const addCreated = (itemId) => {
         console.log('pushing: ', itemId)
@@ -15,6 +18,7 @@ function Form(props) {
             }
         })
         .then(res => console.log('res: ', res))
+        .then(() => navigate(`/listeditems/${itemId}`))
         .catch(err => console.log(err))
     }
 
@@ -41,7 +45,8 @@ function Form(props) {
                 location: e.target.location.value,
                 zipcode: e.target.zipcode.value,
                 category: e.target.category.value,     
-                owner: props.user._id           
+                owner: props.user._id, 
+                image: e.target.image.value           
 			},
 		},
 	})
