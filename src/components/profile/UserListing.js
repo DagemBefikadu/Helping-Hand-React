@@ -14,7 +14,7 @@ function UserListing(props) {
     })
     return (
         <div>
-            <h1>My Listings are here:</h1>
+            <h1>My Listings:</h1>
             {userListings}
             <Link to={{ pathname: "/editForm" }}>
                 Create a Listing
