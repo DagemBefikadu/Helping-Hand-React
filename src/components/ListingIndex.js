@@ -1,5 +1,7 @@
 import Listing from "./Listing"
 import ItemList from "./ItemList"
+import UserListing from "./profile/UserListing"
+
 function ListingIndex (props) {
     // const items = props.listings.map(l => {
     //    return <Listing listing={l} key={l._id}/>
@@ -15,6 +17,7 @@ function ListingIndex (props) {
      return (
          <div className="listingIndex">
              {items}
+             <UserListing />
          </div>
      )
 

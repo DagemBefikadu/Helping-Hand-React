@@ -1,12 +1,9 @@
 import { useState ,useEffect} from 'react'
 import axios from 'axios'
 
-
 function Form(props) {
     console.log('I am a form prop', props)
     const [newItem, setNewItem] = useState([])
-
-
 
     const addCreated = (itemId) => {
         console.log('pushing: ', itemId)
@@ -21,7 +18,6 @@ function Form(props) {
         .catch(err => console.log(err))
     }
 
-
     //write a function that posts feedback to the db
     const createItem = (e) => {
         e.preventDefault()
@@ -30,7 +26,7 @@ function Form(props) {
         console.log('description: ', e.target.description.value )
         console.log('location: ', e.target.location.value )
         console.log('category: ', e.target.category.value )
-        console.log('owner: ', props.user._id )
+        // console.log('owner: ', props.user._id )
         console.log('e.target.image.value', e.target.image.value)
     axios({
 		url: 'http://localhost:8000/items/',
@@ -45,8 +41,7 @@ function Form(props) {
                 location: e.target.location.value,
                 zipcode: e.target.zipcode.value,
                 category: e.target.category.value,     
-                owner: props.user._id,
-                image: e.target.image.value           
+                owner: props.user._id           
 			},
 		},
 	})
@@ -66,6 +61,7 @@ function Form(props) {
 }
 
     return (
+        
    
         <form onSubmit ={createItem}>
             <div>
@@ -94,13 +90,14 @@ function Form(props) {
                 <input type='test' name='category' id='category' 
                   value={newItem.category}/>
             </div>
-             <div>
+            <div>
                 <label htmlFor ='image'>Upload Image:</label>
                 <input type="text" name="image" id="image" />
                 </div> 
 
            <input type="submit" value="Post"/>
          </form>
+        
     )
 }
 
