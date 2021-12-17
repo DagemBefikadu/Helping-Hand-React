@@ -28,16 +28,20 @@ export default function ItemDetail(props) {
     }
 
     const createFav = () => {
-        axios({
-            url: `http://localhost:8000/items/favorites/${newParam.id}`,
-            method: 'PATCH',
-            headers: {
-                Authorization: `Token token=${props.user.token}`           
-            },
-        })
-        .then(res => console.log('server response:', res))
-        .then(() => navigate('/favorites'))
-        .catch(err => console.log(err))
+        if (props.user) {
+            axios({
+                url: `http://localhost:8000/items/favorites/${newParam.id}`,
+                method: 'PATCH',
+                headers: {
+                    Authorization: `Token token=${props.user.token}`           
+                },
+            })
+            .then(res => console.log('server response:', res))
+            .then(() => navigate('/favorites'))
+            .catch(err => console.log(err))
+        } else {
+
+        }
     }
 
 
