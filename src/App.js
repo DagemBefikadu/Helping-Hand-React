@@ -19,6 +19,7 @@ import ItemDetail from "./components/ItemDetail"
 import Form from "./components/Form";
 import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
+import EditItem from "./components/EditItem";
 
 const App = () => {
   //set state
@@ -77,6 +78,8 @@ const App = () => {
         <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
         <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
+        {/* What is the above (line 79 ) for ? -Dino */}
+        <Route path ="/items/edit/:id" element={<EditItem /> } />
 
         <Route
           path="/sign-up"
