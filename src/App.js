@@ -14,13 +14,13 @@ import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
-import Profile from "./components/Profile"
+import Profile from "./components/profile/Profile"
 import ItemDetail from "./components/ItemDetail"
-import Form from "./components/Form";
+import Form from "./components/profile/Form";
 import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
 
-import EditItem from "./components/EditItem";
+import EditItem from "./components/profile/EditItem";
 
 import CreatedListings from "./components/profile/CreatedListings";
 
