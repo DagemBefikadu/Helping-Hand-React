@@ -78,8 +78,8 @@ const App = () => {
         <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
         <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
-        {/* What is the above (line 79 ) for ? -Dino */}
-        <Route path ="/items/edit/:id" element={<EditItem /> } />
+        {/* What is the above (line 80 ) for ? -Dino */}
+        <Route path ="/items/edit/:id" element={<EditItem user={user} /> } />
 
         <Route
           path="/sign-up"
