@@ -10,6 +10,7 @@ function UserListing(props) {
         return <div>
             <ItemList listItem={u} />
             <button onClick={() => props.deleteCreatedItem(u._id)}>Delete Listing</button>
+            <button><Link to={`/items/edit/${u._id}`}>Edit</Link></button>
         </div>
     })
     return (
