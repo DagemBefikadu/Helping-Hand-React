@@ -4,12 +4,9 @@ import axios from 'axios'
 
 function Form(props) {
     console.log('I am a form prop', props)
+    const [newItem, setNewItem] = useState([])
 
-    const [oldItem, setOldItem] = useState(props.item)
 
-    const handleChange = (e) => {
-        setOldItem({...oldItem, [e.target.name]:e.target.value})
-    }
 
     const addCreated = (itemId) => {
         console.log('pushing: ', itemId)
@@ -72,32 +69,34 @@ function Form(props) {
    
         <form onSubmit ={createItem}>
             <div>
-                <label htmlFor ='name'>Name:</label>
-                <input type='text' name='name' id='name' value={oldItem.name} onChange={handleChange}/>
+                <label htmlFor ='name'>item name:</label>
+                <input type='text' name='name' id='name' 
+       
+                  value={newItem.name}/>
             </div>
             <div> 
                 <label htmlFor ='description'>description:</label>
                 <input type='text' name='description' id='description' 
-                  value={oldItem.description} onChange={handleChange}/>
+                  value={newItem.description}/>
             </div>
             <div>
                 <label htmlFor ='location'>location:</label>
                 <input type='text' name='location' id='location' 
-                  value={oldItem.location} onChange={handleChange}/>
+                  value={newItem.location}/>
             </div>
             <div>
                 <label htmlFor ='zipcode'>Zipcode:</label>
                 <input type='number' name='zipcode' id='zipcode' 
-                  value={oldItem.zipcode} onChange={handleChange}/>
+                  value={newItem.zipcode}/>
             </div>
             <div>
                 <label htmlFor ='category'>Category:</label>
                 <input type='test' name='category' id='category' 
-                  value={oldItem.category} onChange={handleChange}/>
+                  value={newItem.category}/>
             </div>
              <div>
                 <label htmlFor ='image'>Upload Image:</label>
-                <input type="text" name="image" id="image" value={oldItem.image} onChange={handleChange}/>
+                <input type="text" name="image" id="image" />
                 </div> 
 
            <input type="submit" value="Post"/>

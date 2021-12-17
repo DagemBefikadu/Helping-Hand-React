@@ -40,17 +40,11 @@ function EditItem(props) {
     const editItem = (e) => {
 
         e.preventDefault()
-        console.log('form data: ', e.target.value)
-        console.log('name: ', e.target.name.value)
-        console.log('description: ', e.target.description.value)
-        console.log('location: ', e.target.location.value)
-        console.log('category: ', e.target.category.value)
-        console.log('e.target.image.value', e.target.image.value)
         axios({
             url: `http://localhost:8000/items/${oldItem._id}`,
             method: 'PATCH',
             // headers: {
-                ////add auth once nav to this page is established 
+            //     //add auth once nav to this page is established 
             //     Authorization: `Token token=${props.user.token}`,
             // },
             data: {
@@ -77,65 +71,6 @@ function EditItem(props) {
             })
             .catch(err => console.log(err))
     }
-
-
-
-    // const addCreated = (itemId) => {
-    //     console.log('pushing: ', itemId)
-    //     axios({
-    //         url: `http://localhost:8000/items/mylistings/${itemId}`,
-    //         method: 'PATCH',
-    //         headers: {
-    //             Authorization: `Token token=${props.user.token}`,
-    //         }
-    //     })
-    //         .then(res => console.log('res: ', res))
-    //         .catch(err => console.log(err))
-    // }
-
-
-    // //write a function that posts feedback to the db
-    // const createItem = (e) => {
-    //     e.preventDefault()
-    //     console.log('form data: ', e.target.value)
-    //     console.log('name: ', e.target.name.value)
-    //     console.log('description: ', e.target.description.value)
-    //     console.log('location: ', e.target.location.value)
-    //     console.log('category: ', e.target.category.value)
-    //     console.log('owner: ', props.user._id)
-    //     console.log('e.target.image.value', e.target.image.value)
-    //     axios({
-    //         url: 'http://localhost:8000/items/',
-    //         method: 'POST',
-    //         headers: {
-    //             Authorization: `Token token=${props.user.token}`,
-    //         },
-    //         data: {
-    //             items: {
-    //                 name: e.target.name.value,
-    //                 description: e.target.description.value,
-    //                 location: e.target.location.value,
-    //                 zipcode: e.target.zipcode.value,
-    //                 category: e.target.category.value,
-    //                 owner: props.user._id,
-    //                 image: e.target.image.value
-    //             },
-    //         },
-    //     })
-    //         .then(res => {
-    //             console.log('server response:', res)
-    //             addCreated(res.data.item._id)
-    //         })
-    //         .then(() => {
-    //             props.refreshItem()
-    //             e.target.name.value = ''
-    //             e.target.description.value = ''
-    //             e.target.location.value = ''
-    //             e.target.zipcode.value = ''
-    //             e.target.category.value = ''
-    //         })
-    //         .catch(err => console.log(err))
-    // }
 
     return (
 
