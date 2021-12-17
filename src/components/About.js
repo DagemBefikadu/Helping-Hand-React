@@ -12,7 +12,7 @@ function About () {
         about: 'A full stack dev with a backround in visual merchandising and philosophy'
     })
     const [lawrence] = useState({
-        name: '',
+        name: 'Lawrence Salinas',
         github: 'https://github.com/lawrencesalinas',
         email: '',
         linkedin: '',
@@ -46,6 +46,7 @@ function About () {
         <DevLinks dev={dino}/>
         <DevLinks dev={dagem} />
         <DevLinks dev={kelly} />
+        <DevLinks dev={lawrence} />
     </div>
     )
 }
