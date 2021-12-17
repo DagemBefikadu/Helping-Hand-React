@@ -67,7 +67,7 @@ function Form(props) {
 
     return (
    
-        <form onSubmit ={createItem}>
+        <form onSubmit={createItem} enctype="multipart/form-data">
             <div>
                 <label htmlFor ='name'>item name:</label>
                 <input type='text' name='name' id='name' 
