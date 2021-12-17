@@ -85,11 +85,7 @@ function Form(props) {
                   value={newItem.location}/>
             </div>
             <div>
-<<<<<<< HEAD
-                <label htmlFor ='zipcode'>zipcode:</label>
-=======
                 <label htmlFor ='zipcode'>Zipcode:</label>
->>>>>>> 6f0119efdea760e2a072d0e20c65f9890892595a
                 <input type='number' name='zipcode' id='zipcode' 
                   value={newItem.zipcode}/>
             </div>

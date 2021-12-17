@@ -12,11 +12,11 @@ function About () {
         about: 'A full stack dev with a backround in visual merchandising and philosophy'
     })
     const [lawrence] = useState({
-        name: '',
+        name: 'Lawrence Salinas',
         github: 'https://github.com/lawrencesalinas',
-        email: '',
-        linkedin: '',
-        headshot: '',
+        email: 'lawrencesalinas7@gmail.com',
+        linkedin: 'https://www.linkedin.com/in/lawrence-salinas-959b06224/',
+        headshot: 'https://media-exp1.licdn.com/dms/image/C4E03AQH-y55-WRDSVQ/profile-displayphoto-shrink_800_800/0/1639734790054?e=1645056000&v=beta&t=RLHOLKXkgqdgxf6AApLLLt8g46MfX7m4vfc5owWoBcA',
         about: '',
 
     })
@@ -46,6 +46,7 @@ function About () {
         <DevLinks dev={dino}/>
         <DevLinks dev={dagem} />
         <DevLinks dev={kelly} />
+        <DevLinks dev={lawrence} />
     </div>
     )
 }
