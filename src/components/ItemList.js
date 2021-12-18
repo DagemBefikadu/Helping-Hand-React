@@ -16,7 +16,7 @@ export default function ItemList(props) {
 	}
     return (
         <div>
-            <Container fluid>
+            <Container fluid >
                 <Row>
                 <Col>
                 <Card style={{ width: '18rem' }} className='mb-4 mt-4'>

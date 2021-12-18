@@ -19,6 +19,16 @@ const ChangePassword = (props) => {
     const [oldPassword, setOldPassword] = useState('')
     const [newPassword, setNewPassword] = useState('')
 
+    const buttonStyle = {
+        backgroundColor: '#574B60',
+        border: '#574B60'
+    }
+
+    const backgroundTextColor = {
+		border: '#BCCCE0',
+		color: '#3F334D',
+	}
+
     const navigate = useNavigate()
 
 	const onChangePassword = (event) => {
@@ -53,7 +63,7 @@ const ChangePassword = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row' style={backgroundTextColor}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Change Password</h3>
                 <Form onSubmit={onChangePassword}>
@@ -79,7 +89,7 @@ const ChangePassword = (props) => {
                             onChange={e => setNewPassword(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button style={buttonStyle} className="mt-2" variant='primary' type='submit'>
                         Submit
                     </Button>
                 </Form>

@@ -42,6 +42,7 @@ function About () {
 
 
     return (
+
     <div id="ourTeam">
         <DevLinks dev={dino}/>
         <DevLinks dev={dagem} />

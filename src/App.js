@@ -16,7 +16,7 @@ import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/profile/Profile"
 import ItemDetail from "./components/ItemDetail"
-import Form from "./components/profile/Form";
+import NewForm from "./components/profile/NewForm";
 import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
 import apiUrl from "./apiConfig";
@@ -87,7 +87,7 @@ const App = () => {
         <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
         <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
-        <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
+        <Route path ="/edititem" element={<NewForm refreshItem={getItems} user={user}/> } />
 
         {/* What is the above (line 80 ) for ? -Dino */}
         <Route path ="/items/edit/:id" element={<EditItem user={user} /> } />
