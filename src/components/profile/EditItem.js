@@ -4,6 +4,12 @@ import axios from "axios"
 import apiUrl from '../../apiConfig';
 
 function EditItem(props) {
+    const formButtonColor = {
+		border: '#bf98a0',
+		backgroundColor: '#bf98a0', 
+        outline: 'None'
+	}
+
     //save instance of useNavigate
     const navigate = useNavigate()
     //grab item id from url params

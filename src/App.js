@@ -16,16 +16,22 @@ import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
 import Profile from "./components/profile/Profile"
 import ItemDetail from "./components/ItemDetail"
-import Form from "./components/profile/Form";
+import NewForm from "./components/profile/NewForm";
 import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
 import apiUrl from "./apiConfig";
 import EditItem from "./components/profile/EditItem";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import CreatedListings from "./components/profile/CreatedListings";
 
 
 const App = () => {
+  
+  const backgroundColor = {
+    border: '#BCCCE0',
+    backgroundColor: '#e3eaf2'
+  }
   //set state
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
@@ -71,9 +77,9 @@ const App = () => {
   }
 
   return (
-    <Fragment>
+    <Fragment >
       <Header user={user} />
-      <Routes>
+      <Routes >
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact user={user}/>} />
@@ -81,7 +87,7 @@ const App = () => {
         <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
         <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
-        <Route path ="/edititem" element={<Form refreshItem={getItems} user={user}/> } />
+        <Route path ="/edititem" element={<NewForm refreshItem={getItems} user={user}/> } />
 
         {/* What is the above (line 80 ) for ? -Dino */}
         <Route path ="/items/edit/:id" element={<EditItem user={user} /> } />

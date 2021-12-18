@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import Form from './Form'
+import NewForm from './NewForm'
 const linkStyle = {
-  color: 'black',
+  color: 'purple',
   textDecoration: 'none'
 }
 function Profile(props) {
@@ -10,18 +10,18 @@ function Profile(props) {
   //route
   return (
     <div>
-      <Form refreshItem={props.refreshItem} user={props.user} />
-      <h1>My Profile</h1>
+      <h1>{props.user.name}'s Profile</h1>
       <div>
-        <Link to={{ pathname: "/favorites" }}>
+        <Link to={{ pathname: "/favorites" }} style={linkStyle}>
           My Favorites
         </Link >
       </div>
       <div>
-        <Link to={{ pathname: "/mylistings" }}>
+        <Link to={{ pathname: "/mylistings" }} style={linkStyle}>
           My Listings
         </Link >
       </div>
+      <NewForm refreshItem={props.refreshItem} user={props.user} />
     </div>
   )
 }

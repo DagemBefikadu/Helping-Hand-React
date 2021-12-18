@@ -14,10 +14,12 @@ function About () {
     const [lawrence] = useState({
         name: 'Lawrence Salinas',
         github: 'https://github.com/lawrencesalinas',
+
         email: 'lawrencesalinas7@gmail.com',
         linkedin: 'https://www.linkedin.com/in/lawrence-salinas-959b06224/',
         headshot: 'https://media-exp1.licdn.com/dms/image/C4E03AQH-y55-WRDSVQ/profile-displayphoto-shrink_800_800/0/1639734790054?e=1645056000&v=beta&t=RLHOLKXkgqdgxf6AApLLLt8g46MfX7m4vfc5owWoBcA',
-        about: '',
+
+
 
     })
     const [kelly] = useState({
@@ -42,6 +44,7 @@ function About () {
 
 
     return (
+
     <div id="ourTeam">
         <DevLinks dev={dino}/>
         <DevLinks dev={dagem} />
