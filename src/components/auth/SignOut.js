@@ -6,6 +6,15 @@ import { signOut } from '../../api/auth'
 import messages from '../shared/AutoDismissAlert/messages'
 
 const SignOut = (props) => {
+    const buttonStyle = {
+		border: '#BCCCE0',
+		color: 'white',
+		backgroundColor: '#574B60'
+	}
+	const backgroundTextColor = {
+		border: '#BCCCE0',
+		color: '#3F334D',
+	}
 	const { msgAlert, clearUser, user } = props
     console.log(props)
 
@@ -30,15 +39,15 @@ const SignOut = (props) => {
 
 	return (
 		<>
-            <div className='row'>
+            <div className='row' style={backgroundTextColor}>
                 <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                     <h2>Are you sure you want to sign out?</h2>
                     <small>We hate to see you go...</small><br/>
                     <ButtonGroup>
-                        <Button variant='danger' onClick={onSignOut}>
+                        <Button variant="outline-danger" onClick={onSignOut}>
                             Sign Out
                         </Button>
-                        <Button variant='warning' onClick={onCancel}>
+                        <Button style={buttonStyle} onClick={onCancel}>
                             Cancel
                         </Button>
                     </ButtonGroup>

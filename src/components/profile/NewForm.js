@@ -2,8 +2,15 @@ import { useState ,useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import apiUrl from '../../apiConfig';
+import { Form, Button, Row, Col, Container } from "react-bootstrap/";
 
-function Form(props) {
+function NewForm(props) {
+    const formButtonColor = {
+		border: '#bf98a0',
+		backgroundColor: '#bf98a0', 
+        outline: 'None'
+	}
+
     console.log('I am a form prop', props)
     const [newItem, setNewItem] = useState([])
 
@@ -67,45 +74,44 @@ function Form(props) {
 }
 
     return (
-        
-   
-        <form onSubmit={createItem} enctype="multipart/form-data">
-            <div>
-                <label htmlFor ='name'>item name:</label>
-                <input type='text' name='name' id='name' 
+        <Container className='mt-5 mb-4'>
+        <h1>Create New Item:</h1>
+        <Form onSubmit={createItem} enctype="multipart/form-data">
+            <Form.Group>
+                <Form.Label className='mb-1 mt-2' htmlFor ='name'>item name:</Form.Label>
+                <Form.Control type='text' name='name' id='name' 
        
                   value={newItem.name}/>
-            </div>
-            <div> 
-                <label htmlFor ='description'>description:</label>
-                <input type='text' name='description' id='description' 
+            </Form.Group>
+            <Form.Group> 
+                <Form.Label className='mb-1 mt-1' htmlFor ='description'>description:</Form.Label>
+                <Form.Control type='text' name='description' id='description' 
                   value={newItem.description}/>
-            </div>
-            <div>
-                <label htmlFor ='location'>location:</label>
-                <input type='text' name='location' id='location' 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label className='mb-1 mt-1' htmlFor ='location'>location:</Form.Label>
+                <Form.Control type='text' name='location' id='location' 
                   value={newItem.location}/>
-            </div>
-            <div>
-                <label htmlFor ='zipcode'>Zipcode:</label>
-                <input type='number' name='zipcode' id='zipcode' 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label className='mb-1 mt-1' htmlFor ='zipcode'>Zipcode:</Form.Label>
+                <Form.Control type='number' name='zipcode' id='zipcode' 
                   value={newItem.zipcode}/>
-            </div>
-            <div>
-                <label htmlFor ='category'>Category:</label>
-                <input type='test' name='category' id='category' 
+            </Form.Group>
+            <Form.Group>
+                <Form.Label className='mb-1 mt-1' htmlFor ='category'>Category:</Form.Label>
+                <Form.Control type='category' name='category' id='category' 
                   value={newItem.category}/>
-            </div>
-            <div>
-                <label htmlFor ='image'>Upload Image:</label>
-                <input type="text" name="image" id="image" />
-                </div> 
-
-           <input type="submit" value="Post"/>
-         </form>
-        
+            </Form.Group>
+            <Form.Group >
+                <Form.Label  className='mb-1 mt-1' htmlFor ='image'>Upload Image:</Form.Label>
+                <Form.Control type="text" name="image" id="image" />
+            </Form.Group> 
+           <Form.Control style={formButtonColor} className=' mt-5' type="submit" value="Post"/>
+        </Form>
+        </Container>
     )
 }
 
 
-export default Form
+export default NewForm

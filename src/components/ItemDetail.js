@@ -4,8 +4,16 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import apiUrl from '../apiConfig'
+import { Container, Row, Col, Image, Button} from "react-bootstrap/";
+
 
 export default function ItemDetail(props) {
+
+    const cardButtonColor = {
+		border: '#bf98a0',
+		backgroundColor: '#bf98a0', 
+        outline: 'None'
+	}
 
     const[singleItem, setSingleItem] = useState([])
 
@@ -49,19 +57,20 @@ export default function ItemDetail(props) {
 
     return (
         <div>
-            <container>
+            <Container>
+                <Row>
                 <h1>{singleItem.name}</h1>
-                <small>{singleItem.category}</small>
+                <small>Category: {singleItem.category}</small>
                 <br />
                 <br />
-                <img src={singleItem.image} alt={singleItem.name} />
-                <p>{singleItem.description}</p>
-                <small>{singleItem.location}</small>
-                <small>{singleItem.zipcode}</small>
-            </container>
+                <Image src={singleItem.image} alt={singleItem.name} rounded/>
+                <p>Item Description: {singleItem.description}</p>
+                <small>Item Location: {singleItem.location}</small>
+                <small>Zipcode: {singleItem.zipcode}</small>
             <br />
-            <button onClick={createFav}>Fave Me</button>
-
+            <Button style={cardButtonColor} className='mb-3' onClick={createFav}>Fave Me</Button>
+            </Row>
+            </Container>
         </div>
     )
 }

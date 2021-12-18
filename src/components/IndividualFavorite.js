@@ -1,11 +1,12 @@
 import Listing from "./Listing"
+import {  Button } from "react-bootstrap/";
 
 export default function IndividualFavorite (props) {
     const listings = props.allItems.map((l) => {
         console.log(l)
         return <div>
         <Listing listing={l} />
-        <button onClick={() => props.deleteClick(l._id)}>DeleteFav</button>
+        <Button  className="mt-2"variant="outline-danger" onClick={() => props.deleteClick(l._id)}>DeleteFav</Button>
         </div>
     })
 
