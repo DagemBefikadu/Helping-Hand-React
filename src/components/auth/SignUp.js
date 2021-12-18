@@ -9,6 +9,16 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const SignUp = (props) => {
+    const buttonStyle = {
+		border: '#BCCCE0',
+		color: 'white',
+		backgroundColor: '#574B60'
+	}
+
+    const backgroundTextColor = {
+		border: '#BCCCE0',
+		color: '#3F334D',
+	}
     
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -51,7 +61,7 @@ const SignUp = (props) => {
 
 
     return (
-        <div className='row'>
+        <div className='row' style={backgroundTextColor}>
             <div className='col-sm-10 col-md-8 mx-auto mt-5'>
                 <h3>Sign Up</h3>
                 <Form onSubmit={onSignUp}>
@@ -99,7 +109,7 @@ const SignUp = (props) => {
                             onChange={e => setPasswordConfirmation(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant='primary' type='submit'>
+                    <Button style={buttonStyle} type='submit'>
                         Submit
                     </Button>
                 </Form>

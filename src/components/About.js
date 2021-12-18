@@ -14,9 +14,9 @@ function About () {
     const [lawrence] = useState({
         name: 'Lawrence Salinas',
         github: 'https://github.com/lawrencesalinas',
-        email: '',
-        linkedin: '',
-        headshot: '',
+        email: 'lawrence7@gmail.com',
+        linkedin: 'https://www.linkedin.com/in/lawrence-salinas-959b06224/',
+        headshot: 'https://media-exp1.licdn.com/dms/image/C4E03AQH-y55-WRDSVQ/profile-displayphoto-shrink_200_200/0/1639734790054?e=1645056000&v=beta&t=JDWaVHRO1wDqIdxZptTfT_q9UEiHrJ_xG9yNBeIOEvI',
         about: '',
 
     })

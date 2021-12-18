@@ -21,11 +21,17 @@ import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
 import apiUrl from "./apiConfig";
 import EditItem from "./components/profile/EditItem";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import CreatedListings from "./components/profile/CreatedListings";
 
 
 const App = () => {
+  
+  const backgroundColor = {
+    border: '#BCCCE0',
+    backgroundColor: '#e3eaf2'
+  }
   //set state
   const [user, setUser] = useState(null);
   const [msgAlerts, setMsgAlerts] = useState([]);
@@ -71,9 +77,9 @@ const App = () => {
   }
 
   return (
-    <Fragment>
+    <Fragment >
       <Header user={user} />
-      <Routes>
+      <Routes >
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
         <Route path="/contact" element={<Contact user={user}/>} />
