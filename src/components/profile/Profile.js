@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Form from './Form'
 const linkStyle = {
-  color: 'black',
+  color: 'white',
   textDecoration: 'none'
 }
 function Profile(props) {

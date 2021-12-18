@@ -11,7 +11,6 @@ export default function AllListing (props) {
 
     return (
         <div>
-            <p>ALL listing go here: </p>
             {listings}
         </div>
     )
