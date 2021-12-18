@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import UserListing from './UserListing'
+import apiUrl from '../../apiConfig';
 
 function CreatedListings(props) {
 
@@ -8,7 +9,7 @@ function CreatedListings(props) {
 
     const getCreatedItems = () => {
         axios({
-            url: 'http://localhost:8000/users/createdItems',
+            url: apiUrl + '/users/createdItems',
             method: 'GET',
             headers: {
                 'Authorization': `Token token=${props.user.token}`
@@ -27,7 +28,7 @@ function CreatedListings(props) {
 
     const deleteCreatedItem = (createdId) => {
         axios({
-            url: `http://localhost:8000/users/createdItems/${createdId}`,
+            url: apiUrl + `/users/createdItems/${createdId}`,
             method: 'DELETE',
             headers: {
                 Authorization: `Token token=${props.user.token}`,

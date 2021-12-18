@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Feedback from './Feedback'
 import NewFeedback from './NewFeedback'
 import messages from './shared/AutoDismissAlert/messages'
+import apiUrl from '../apiConfig'
 
 //import axios
 import axios from 'axios'
@@ -14,7 +15,7 @@ console.log('contact', props);
     //write a function that gets feedbacks from db
     const getFeedback = () => {
         console.log('getting feedback')
-        fetch('http://localhost:8000/feedbacks')
+        fetch(apiUrl + '/feedbacks')
         .then(response=>response.json())
         .then(foundFeedbacks=>{
           setAllFeedback(foundFeedbacks.feedbacks)
@@ -37,7 +38,7 @@ console.log('contact', props);
         } else {
             console.log('form data: ', e.target.review.value)
             axios({
-                url: 'http://localhost:8000/feedbacks/',
+                url: apiUrl + '/feedbacks',
                 method: 'POST',
                 headers: {
                     Authorization: `Token token=${props.user.token}`,
@@ -60,7 +61,7 @@ console.log('contact', props);
     //write a function that deletes feedback
     const deleteFeedback = (fId) => {
     axios({
-		url: `http://localhost:8000/feedbacks/${fId}`,
+		url: apiUrl + `/feedbacks/${fId}`,
 		method: 'DELETE',
         headers: {
 			Authorization: `Token token=${props.user.token}`,

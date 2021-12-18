@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import apiUrl from '../apiConfig'
 
 export default function ItemDetail(props) {
 
@@ -19,7 +20,7 @@ export default function ItemDetail(props) {
       }, [])
 
     const getItem = () => {
-        fetch(`http://localhost:8000/items/${newParam.id}`)
+        fetch(apiUrl + `/items/${newParam.id}`)
         .then(response=>response.json())
         .then(foundItem => {
             setSingleItem(foundItem.item)
@@ -30,7 +31,7 @@ export default function ItemDetail(props) {
     const createFav = () => {
         if (props.user) {
             axios({
-                url: `http://localhost:8000/items/favorites/${newParam.id}`,
+                url: apiUrl + `/items/favorites/${newParam.id}`,
                 method: 'PATCH',
                 headers: {
                     Authorization: `Token token=${props.user.token}`           
