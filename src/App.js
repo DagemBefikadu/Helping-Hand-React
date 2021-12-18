@@ -14,13 +14,13 @@ import SignOut from "./components/auth/SignOut";
 import ChangePassword from "./components/auth/ChangePassword";
 import AllListing from "./components/AllListing";
 import Contact from "./components/Contact";
-import Profile from "./components/Profile"
+import Profile from "./components/profile/Profile"
 import ItemDetail from "./components/ItemDetail"
-import Form from "./components/Form";
+import Form from "./components/profile/Form";
 import About from "./components/About";
 import FavoriteList from "./components/profile/FavoriteList";
-
-import EditItem from "./components/EditItem";
+import apiUrl from "./apiConfig";
+import EditItem from "./components/profile/EditItem";
 
 import CreatedListings from "./components/profile/CreatedListings";
 
@@ -59,7 +59,7 @@ const App = () => {
 
   //get al listings from the db
   const getItems = () => {
-    fetch('http://localhost:8000/items')
+    fetch(apiUrl + '/items')
     .then(response=>response.json())
     .then(foundItems=>{
       setAllItems(foundItems)

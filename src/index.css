@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+
+
+
 .headshot {
   max-height: 12vh;
   border-radius: 100px;
@@ -24,3 +27,4 @@ code {
   border-radius: 4px;
   margin: 20px;
 }
+

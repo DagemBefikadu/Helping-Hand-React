@@ -4,6 +4,7 @@ import AllListing from '../AllListing';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import IndividualFavorite from '../IndividualFavorite';
+import apiUrl from '../../apiConfig';
 
 function FavoriteList(props){
   // console.log('props', props)
@@ -14,7 +15,7 @@ function FavoriteList(props){
 
   const getUserItems = () => {
     axios({
-      url: 'http://localhost:8000/users/favorites',
+      url: apiUrl + '/users/favorites',
       method: 'GET',
       headers: {
         'Authorization': `Token token=${props.user.token}`
@@ -34,7 +35,7 @@ function FavoriteList(props){
   const deleteFav = (id) => {
     console.log('Deleting', id)
     axios({
-        url: `http://localhost:8000/items/favorites/${id}`,
+        url: apiUrl + `/items/favorites/${id}`,
         method: 'DELETE',
         headers: {
             Authorization: `Token token=${props.user.token}`           

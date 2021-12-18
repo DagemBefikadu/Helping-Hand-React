@@ -1,6 +1,7 @@
 import { useState ,useEffect} from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+import apiUrl from '../../apiConfig';
 
 function Form(props) {
     console.log('I am a form prop', props)
@@ -11,7 +12,7 @@ function Form(props) {
     const addCreated = (itemId) => {
         console.log('pushing: ', itemId)
         axios({
-            url: `http://localhost:8000/items/mylistings/${itemId}`,
+            url: apiUrl + `/items/mylistings/${itemId}`,
             method: 'PATCH',
             headers: {
                 Authorization: `Token token=${props.user.token}`,
@@ -33,7 +34,7 @@ function Form(props) {
         // console.log('owner: ', props.user._id )
         console.log('e.target.image.value', e.target.image.value)
     axios({
-		url: 'http://localhost:8000/items/',
+		url: apiUrl + '/items/',
 		method: 'POST',
         headers: {
 			Authorization: `Token token=${props.user.token}`,

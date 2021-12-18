@@ -1,7 +1,7 @@
-import Form from "./Form"
 import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import apiUrl from '../../apiConfig';
 
 function EditItem(props) {
     //save instance of useNavigate
@@ -20,7 +20,7 @@ function EditItem(props) {
     //get listing from the db whose id matches :id param
     const getEditItem = () => {
         axios({
-            url: `http://localhost:8000/items/${oldItemId.id}`,
+            url: apiUrl + `/items/${oldItemId.id}`,
             method: 'GET',
         })
             .then(res => {
@@ -41,7 +41,7 @@ function EditItem(props) {
 
         e.preventDefault()
         axios({
-            url: `http://localhost:8000/items/${oldItem._id}`,
+            url: apiUrl + `/items/${oldItem._id}`,
             method: 'PATCH',
             // headers: {
             //     //add auth once nav to this page is established 
