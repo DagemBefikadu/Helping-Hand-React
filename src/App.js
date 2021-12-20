@@ -82,8 +82,8 @@ const App = () => {
       <Routes >
         <Route path="/" element={<Home msgAlert={msgAlert} user={user} allItems={allItems} />} />
         <Route path="/listeditems" element={<AllListing allItems={allItems.items} />} />
-        <Route path="/contact" element={<Contact user={user}/>} />
-        <Route path ="/about" element={<About /> } />
+        <Route path="/about" element={<About user={user}/>} />
+        <Route path ="/contact" element={<Contact /> } />
         <Route path="/listeditems/:id" element={<ItemDetail user={user} />}></Route>
         <Route path ="/profile" element={<Profile refreshItem={getItems} user={user}/> } />
         <Route path ="/favorites" element={<FavoriteList user={user}/> } />
