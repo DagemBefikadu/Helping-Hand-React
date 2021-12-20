@@ -1,13 +1,25 @@
+import { Form, Container } from "react-bootstrap/";
 
 function NewFeedback (props) {
+    const formButtonColor = {
+		border: '#bf98a0',
+		backgroundColor: '#bf98a0', 
+        outline: 'None'
+	}
+
     return (
         <>
-        
-        <form onSubmit={props.createFeedback}>
-        <label htmlFor="review">What Do You Think?</label>
-        <input type="text" id="review" name="review" />
-        <input type="submit"/>
-        </form> 
+        <Container>
+            <Form onSubmit={props.createFeedback}>
+            <Form.Group>
+            <Form.Label htmlFor="review" className="mb-3 mt-4" ><h5>Tell us how you feel about our app...</h5></Form.Label>
+            <Form.Control type="text" id="review" name="review" placeholder="Feedback, comments, testimonials" />
+            </Form.Group>
+            <Form.Group>
+            <Form.Control style={formButtonColor} type="submit"/>
+            </Form.Group>
+            </Form> 
+            </Container>
         </>
     )
 }

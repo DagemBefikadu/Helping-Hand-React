@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 import NewForm from './NewForm'
+import { Breadcrumb } from "react-bootstrap/";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart, faList } from '@fortawesome/free-solid-svg-icons'
+
 const linkStyle = {
   color: 'purple',
   textDecoration: 'none'
@@ -10,17 +14,19 @@ function Profile(props) {
   //route
   return (
     <div>
-      <h1>{props.user.name}'s Profile</h1>
-      <div>
+      <Breadcrumb className='mt-2'>
+      <Breadcrumb.Item>
         <Link to={{ pathname: "/favorites" }} style={linkStyle}>
-          My Favorites
+          My Favorites <FontAwesomeIcon icon={faHeart} />
         </Link >
-      </div>
-      <div>
+      </Breadcrumb.Item>
+      <Breadcrumb.Item>
         <Link to={{ pathname: "/mylistings" }} style={linkStyle}>
-          My Listings
+          My Listings <FontAwesomeIcon icon={faList} />
         </Link >
-      </div>
+      </Breadcrumb.Item>
+      </Breadcrumb>
+      <h1>{props.user.name}'s Profile</h1>
       <NewForm refreshItem={props.refreshItem} user={props.user} />
     </div>
   )

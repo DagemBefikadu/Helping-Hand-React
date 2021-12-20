@@ -3,6 +3,8 @@ import ItemList from '../ItemList'
 import CreatedListings from './CreatedListings'
 import { Link } from 'react-router-dom'
 import {  Button } from "react-bootstrap/";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 function UserListing(props) {
     const buttonStyle = {
@@ -24,8 +26,8 @@ function UserListing(props) {
         console.log('map list', u)
         return <div>
             <ItemList listItem={u} />
-            <Button className="mx-2" variant="outline-danger" onClick={() => props.deleteCreatedItem(u._id)}>Delete Listing</Button>
-            <Button style={buttonStyle}><Link style={buttonStyle} to={`/items/edit/${u._id}`}>Edit</Link></Button>
+            <Button className="mx-2" variant="outline-danger" onClick={() => props.deleteCreatedItem(u._id)}>Delete Listing <FontAwesomeIcon icon={faTrashAlt} /></Button>
+            <Button style={buttonStyle}><Link style={buttonStyle} to={`/items/edit/${u._id}`}>Edit <FontAwesomeIcon icon={faPencilAlt} /></Link></Button>
         </div>
     })
     return (

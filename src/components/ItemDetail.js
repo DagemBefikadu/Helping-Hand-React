@@ -5,6 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import apiUrl from '../apiConfig'
 import { Container, Row, Col, Image, Button} from "react-bootstrap/";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function ItemDetail(props) {
@@ -68,7 +70,7 @@ export default function ItemDetail(props) {
                 <small>Item Location: {singleItem.location}</small>
                 <small>Zipcode: {singleItem.zipcode}</small>
             <br />
-            <Button style={cardButtonColor} className='mb-3' onClick={createFav}>Fave Me</Button>
+            <Button style={cardButtonColor} className='mb-3' onClick={createFav}>Fave Me <FontAwesomeIcon icon={faHeart} /></Button>
             </Row>
             </Container>
         </div>

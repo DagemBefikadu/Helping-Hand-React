@@ -2,6 +2,9 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import apiUrl from '../../apiConfig';
+import { Form, Button, Container } from "react-bootstrap/";
+
+
 
 function EditItem(props) {
     const formButtonColor = {
@@ -79,39 +82,41 @@ function EditItem(props) {
     }
 
     return (
-
-        <form onSubmit={editItem}>
-            <div>
-                <label htmlFor='name'>Name:</label>
-                <input type='text' name='name' id='name' value={oldItem.name} onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor='description'>description:</label>
-                <input type='text' name='description' id='description'
+        <Container>
+        <h1 className="mt-3">Edit Listing:</h1>
+        <Form onSubmit={editItem} className="mt-3">
+            <Form.Group>
+                <Form.Label htmlFor='name'>Name:</Form.Label>
+                <Form.Control type='text' name='name' id='name' value={oldItem.name} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group>
+                <Form.Label htmlFor='description'>description:</Form.Label>
+                <Form.Control type='text' name='description' id='description'
                     value={oldItem.description} onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor='location'>location:</label>
-                <input type='text' name='location' id='location'
+            </Form.Group>
+            <Form.Group>
+                <Form.Label htmlFor='location'>location:</Form.Label>
+                <Form.Control type='text' name='location' id='location'
                     value={oldItem.location} onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor='zipcode'>Zipcode:</label>
-                <input type='number' name='zipcode' id='zipcode'
+            </Form.Group>
+            <Form.Group>
+                <Form.Label htmlFor='zipcode'>Zipcode:</Form.Label>
+                <Form.Control type='number' name='zipcode' id='zipcode'
                     value={oldItem.zipcode} onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor='category'>Category:</label>
-                <input type='test' name='category' id='category'
+            </Form.Group>
+            <Form.Group>
+                <Form.Label htmlFor='category'>Category:</Form.Label>
+                <Form.Control type='test' name='category' id='category'
                     value={oldItem.category} onChange={handleChange} />
-            </div>
-            <div>
-                <label htmlFor='image'>Upload Image:</label>
-                <input type="text" name="image" id="image" value={oldItem.image} onChange={handleChange} />
-            </div>
+            </Form.Group>
+            <Form.Group>
+                <Form.Label htmlFor='image'>Upload Image:</Form.Label>
+                <Form.Control type="text" name="image" id="image" value={oldItem.image} onChange={handleChange} />
+            </Form.Group>
 
-            <input type="submit" value="Post" />
-        </form>
+            <Form.Control style={formButtonColor} className=' mt-5' type="submit" value="Post" />
+        </Form>
+        </Container>
     )
 
 }

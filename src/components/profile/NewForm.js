@@ -105,7 +105,7 @@ function NewForm(props) {
             </Form.Group>
             <Form.Group >
                 <Form.Label  className='mb-1 mt-1' htmlFor ='image'>Upload Image:</Form.Label>
-                <Form.Control type="text" name="image" id="image" />
+                <Form.Control type="text" name="image" id="image" placeHolder= "Paste Image Address Here"/>
             </Form.Group> 
            <Form.Control style={formButtonColor} className=' mt-5' type="submit" value="Post"/>
         </Form>
