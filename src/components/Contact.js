@@ -44,6 +44,7 @@ function Contact () {
     return (
 
     <div id="ourTeam">
+        <h1>Meet Our Team</h1>
         <DevLinks dev={dino}/>
         <DevLinks dev={dagem} />
         <DevLinks dev={kelly} />
