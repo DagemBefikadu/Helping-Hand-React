@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import ListingIndex from "./ListingIndex";
 import AllListing from "./AllListing";
 import { Form, Button, Row, Col, Container } from "react-bootstrap/";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faSearch } from '@fortawesome/free-solid-svg-icons'
 
 function Home(props) {
 	const buttonStyle = {
@@ -69,7 +71,7 @@ function Home(props) {
               {/* <Form.Group>
                 <Form.Control type="submit" value="Search" size="" /> */}
                 <Button style={buttonStyle} type="submit">
-                Search
+                Search <FontAwesomeIcon icon={faSearch} />
               </Button>
               {/* </Form.Group> */}
             </Col>
