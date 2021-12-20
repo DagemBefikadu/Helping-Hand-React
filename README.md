@@ -4,7 +4,7 @@
 ![mobile profile](./readme_images/profile.png)
 
 ## Tech Stack
-The Helping Hand application usese MongoDB to store a document based NoSQL database. Our server built with Express.js and Node.js connects our database to a React application that renders all of our views and forms for our users. We styled our application with components from React Bootstrap, and set our font Josefin Sans by Santiago Orozco, hosted on Google Fonts. We added font   Helping Hand's digital resources are stored on unique url's generatd by Cloudinary's upload API.
+The Helping Hand application usese MongoDB to store a document based NoSQL database. Our server built with Express.js and Node.js connects our database to a React application that renders all of our views and forms for our users. We styled our application with components from React Bootstrap, and set our font Josefin Sans by Santiago Orozco, hosted on Google Fonts. We added font   Helping Hand's digital resources are stored on unique url's generatd by Cloudinary's upload API. Visit the live version of Helping Hand [here](https://helping-hands-sei.herokuapp.com/).
 
 ## Approach
 Before writing our first line of code, our team spent about half of a day brainstorming, planning, and strategizing. We used Lucid Charts to brainstorm the views and components we would need, and then used it to record our desired user journey through the application.
