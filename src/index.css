@@ -13,9 +13,6 @@ code {
     monospace;
 }
 
-
-
-
 .headshot {
   max-height: 12vh;
   border-radius: 100px;
@@ -29,3 +26,21 @@ code {
   margin: 20px;
 }
 
+
+.itemDetailImage{
+  height: 300px;
+}
+
+
+.itemDetail{
+  padding-top: 2%;
+  width: 60vw;
+  margin: 0 auto;
+}
+
+@media(max-width:480px){
+  .itemDetail{
+    width: 95vw;
+    margin: 0 auto;
+  }
+} 

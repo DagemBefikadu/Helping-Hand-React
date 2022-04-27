@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
-import AllListing from '../AllListing';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import IndividualFavorite from '../IndividualFavorite';
