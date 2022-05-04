@@ -1,4 +1,3 @@
-
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
@@ -7,6 +6,8 @@ import apiUrl from '../apiConfig'
 import { Container, Row, Col, Image, Button} from "react-bootstrap/";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+
 
 
 export default function ItemDetail(props) {
@@ -58,14 +59,14 @@ export default function ItemDetail(props) {
 
 
     return (
-        <div>
+        <div className="itemDetail">
             <Container>
                 <Row>
                 <h1>{singleItem.name}</h1>
                 <small>Category: {singleItem.category}</small>
                 <br />
                 <br />
-                <Image src={singleItem.image} alt={singleItem.name} rounded/>
+                <Image src={singleItem.image} alt={singleItem.name} rounded className="itemDetailImage" />
                 <p>Item Description: {singleItem.description}</p>
                 <small>Item Location: {singleItem.location}</small>
                 <small>Zipcode: {singleItem.zipcode}</small>
@@ -78,5 +79,4 @@ export default function ItemDetail(props) {
 }
 
 
-// let newParam = useParams()
-// let content = props.singleItem ? props.singleItem[newParam.id] : 'error'
+

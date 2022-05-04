@@ -5,6 +5,7 @@ import NewFeedback from "./NewFeedback";
 import messages from "./shared/AutoDismissAlert/messages";
 import apiUrl from "../apiConfig";
 
+
 //import axios
 import axios from "axios";
 function About(props) {
@@ -13,7 +14,7 @@ function About(props) {
     }
   console.log("contact", props);
   //initialize state to hold feedback
-  const [allFeedback, setAllFeedback] = useState([]);
+  const [allFeedback, setAllFeedback] = useState([])
 
   //write a function that gets feedbacks from db
   const getFeedback = () => {

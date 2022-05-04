@@ -37,9 +37,7 @@ const App = () => {
   const [msgAlerts, setMsgAlerts] = useState([]);
   //store all items from db in state
   const [allItems, setAllItems] = useState([])
-
-  console.log("user in app", user);
-  console.log("message alerts", msgAlerts);
+  
   const clearUser = () => {
     console.log("clear user ran");
     setUser(null);
